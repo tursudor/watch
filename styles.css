@@ -1,0 +1,332 @@
+/* variables */
+body {
+  background-color: #202020;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.balance-wheel {
+  animation: rotating 0.3s ease-in-out infinite alternate-reverse;
+  transform: rotate(-95deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 650px;
+  height: 650px;
+  z-index: 1;
+}
+.balance-wheel__ring {
+  width: 550px;
+  height: 550px;
+  border: 25px solid rgb(145, 109, 42);
+  border-radius: 50%;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.balance-wheel__screws {
+  z-index: 3;
+}
+.balance-wheel__screw {
+  height: 30px;
+  width: 40px;
+  background-color: rgb(145, 109, 42);
+  display: block;
+  border: 1px solid #000;
+}
+.balance-wheel__spoke {
+  background-color: rgb(145, 109, 42);
+  width: 550px;
+  height: 50px;
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 4px/50%;
+}
+.balance-wheel .spoke-screw {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+  background-color: rgb(222, 226, 248);
+  border-radius: 50%;
+  margin: 0 5px;
+}
+.balance-wheel .spoke-screw::after {
+  display: block;
+  content: "";
+  width: 40px;
+  height: 7px;
+  background-color: rgb(127, 135, 180);
+  border-radius: 5%/10%;
+}
+.balance-wheel__shaft {
+  background-color: rgb(222, 226, 248);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 1;
+  opacity: 0.5;
+}
+.balance-wheel .pin {
+  width: 22px;
+  height: 17px;
+  background: rgb(216, 36, 66);
+  margin-bottom: 10px;
+  border-top-right-radius: 100%;
+  border-top-left-radius: 100%;
+}
+.balance-wheel .pivot {
+  width: 25px;
+  height: 25px;
+  background: rgb(222, 226, 248);
+  margin-bottom: 10px;
+  border-radius: 100%;
+  z-index: 1;
+  margin-bottom: 47px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.balance-wheel .pivot__tip {
+  width: 10px;
+  height: 10px;
+  background: rgb(127, 135, 180);
+  border-radius: 100%;
+}
+
+.balance-wheel__screw--1 {
+  transform: translate(0, -155px);
+}
+
+.balance-wheel__screw--2 {
+  transform: translate(-80px, -177px) rotate(-15deg);
+}
+
+.balance-wheel__screw--3 {
+  transform: translate(-155px, -179px) rotate(-29deg);
+}
+
+.balance-wheel__screw--4 {
+  transform: translate(-290px, -60px) rotate(-67deg);
+}
+
+.balance-wheel__screw--5 {
+  transform: translate(-312px, -20px) rotate(-81deg);
+}
+
+.balance-wheel__screw--6 {
+  transform: translate(-308px, 70px) rotate(-103deg);
+}
+
+.balance-wheel__screw--7 {
+  transform: translate(-214px, 200px) rotate(-136deg);
+}
+
+.balance-wheel__screw--8 {
+  transform: translate(280px, 81px) rotate(-243deg);
+}
+
+.balance-wheel__screw--9 {
+  transform: translate(307px, -20px) rotate(-256deg);
+}
+
+.balance-wheel__screw--10 {
+  transform: translate(305px, -210px) rotate(-285deg);
+}
+
+.balance-wheel__screw--11 {
+  transform: translate(217px, -390px) rotate(-316deg);
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top: 0;
+  border-bottom: 20px solid rgb(145, 109, 42);
+  margin: 56px 0 0 10px;
+  transform: rotate(180deg);
+}
+
+.screw-notch {
+  height: 20px;
+  width: 10px;
+  background-color: #202020;
+  position: absolute;
+  margin: -77px 0 0 15px;
+}
+
+/* fork */
+.balance-fork__pin {
+  display: block;
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  background-color: rgb(222, 226, 248);
+  border-radius: 50%;
+  margin-top: -235px;
+  margin-left: -35px;
+}
+.balance-fork__pin--1 {
+  margin-left: 22px;
+}
+.balance-fork__pin--2 {
+  margin-left: -48px;
+}
+
+.fork {
+  display: block;
+  height: 220px;
+  width: 230px;
+  z-index: -1;
+  position: absolute;
+  margin-top: -282px;
+  margin-left: -111px;
+  transform-origin: 45% 70%;
+  animation: fork 0.3s steps(2) infinite alternate;
+  opacity: 0.8;
+  transform: rotate(-12deg);
+}
+
+/* escapement wheel */
+.escapement-wheel {
+  position: absolute;
+  margin-bottom: -735px;
+  margin-left: -55px;
+}
+
+.escapement {
+  height: 330px;
+  width: 330px;
+  transform-origin: 51% 51%;
+  animation: escapement 9s ease-in infinite;
+  transform: rotate(68deg);
+  object-fit: contain;
+  opacity: 0.5;
+}
+
+/* animation testing */
+@keyframes rotating {
+  100% {
+    transform: rotate(120deg);
+  }
+}
+@keyframes fork {
+  0% {
+    transform: rotate(-12deg);
+  }
+  100% {
+    transform: rotate(32deg);
+  }
+}
+@keyframes escapement {
+  0% {
+    transform: rotate(-4deg);
+  }
+  3% {
+    transform: rotate(4deg);
+  }
+  6% {
+    transform: rotate(20deg);
+  }
+  11% {
+    transform: rotate(28deg);
+  }
+  13% {
+    transform: rotate(44deg);
+  }
+  16% {
+    transform: rotate(52deg);
+  }
+  20% {
+    transform: rotate(68deg);
+  }
+  23% {
+    transform: rotate(76deg);
+  }
+  26% {
+    transform: rotate(92deg);
+  }
+  30% {
+    transform: rotate(100deg);
+  }
+  33% {
+    transform: rotate(116deg);
+  }
+  36% {
+    transform: rotate(124deg);
+  }
+  40% {
+    transform: rotate(140deg);
+  }
+  43% {
+    transform: rotate(148deg);
+  }
+  46% {
+    transform: rotate(164deg);
+  }
+  50% {
+    transform: rotate(172deg);
+  }
+  53% {
+    transform: rotate(188deg);
+  }
+  56% {
+    transform: rotate(196deg);
+  }
+  60% {
+    transform: rotate(212deg);
+  }
+  63% {
+    transform: rotate(220deg);
+  }
+  66% {
+    transform: rotate(236deg);
+  }
+  70% {
+    transform: rotate(244deg);
+  }
+  73% {
+    transform: rotate(260deg);
+  }
+  76% {
+    transform: rotate(268deg);
+  }
+  80% {
+    transform: rotate(286deg);
+  }
+  83% {
+    transform: rotate(294deg);
+  }
+  86% {
+    transform: rotate(310deg);
+  }
+  90% {
+    transform: rotate(308deg);
+  }
+  93% {
+    transform: rotate(324deg);
+  }
+  96% {
+    transform: rotate(332deg);
+  }
+  100% {
+    transform: rotate(356deg);
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
